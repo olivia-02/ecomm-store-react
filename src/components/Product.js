@@ -27,10 +27,10 @@ const Product = ({ id, img, type, price, para, colours }) => {
 		<fieldset>
 			<legend>Bloom Count</legend>
 			<ol>
-			<li><label><input type="radio" name="size" value="5"> 5</input></label></li>
-			<li><label><input type="radio" name="size" value="10"> 10</input></label></li>
-			<li><label><input type="radio" name="size" value="12"> 12</input></label></li>
-			<li><label><input type="radio" name="size" value="16"> 16</input></label></li>
+			<li><label><input type="radio" name="size" value="5"></input> 5</label></li>
+			<li><label><input type="radio" name="size" value="10"></input> 10</label></li>
+			<li><label><input type="radio" name="size" value="12"></input> 12</label></li>
+			<li><label><input type="radio" name="size" value="16"></input> 16</label></li>
 			</ol>
 		</fieldset>
 		</form>

@@ -39,7 +39,7 @@ const App = () => {
 
 return (
 	<>
-		<ProductList products={productArray} />
+		<ProductList products={productArray} /> 
 	</>
 )
 
