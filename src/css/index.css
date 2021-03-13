@@ -1,0 +1,293 @@
+/* Note there a few "reset" styles given in reset.css. Review those before you begin */
+html {
+	--primary-col: #E1E1E1;
+	--primary-vari: #F5F5F5;
+	--secondary-col: #818772;
+	--secondary-vari: #9DA191;
+	--accent-col: #E0CE7A;
+	--accent-col2: #5F7058;
+	--text-icon-col: #5e4f35;
+	/*end colours*/
+	--pad-and-gap: 1em;
+	box-sizing: border-box;
+}
+body{
+	/*global font*/
+	font-weight: 200;
+	font-family: 'Courier New', monospace;
+	color: var(--text-icon-col);
+	background-color: var(--primary-col);
+	max-width: 100%;
+	/* overflow: auto; */
+}
+.material-icons{
+	color: var(--text-icon-col)
+}
+main{
+	width: 100vw;
+}
+li {
+	list-style-type: none;
+}
+button {
+	background-color: var(--secondary-col);
+	box-shadow: none;
+	border: none;
+	color: var(--primary-col);
+	text-align: center;
+	border-radius: 10px;
+}
+button > .material-icons{
+	color: var(--primary-vari);
+	padding-top: 0.2em;
+}
+.page-header{
+	display: grid;
+	grid-template-columns: auto 1fr auto auto;
+	padding: 0px var(--pad-and-gap);
+	align-items: center;
+}
+.page-footer {
+	padding: 0px var(--pad-and-gap);
+}
+.products{
+	padding: 0px var(--pad-and-gap);
+}
+h1, h2 {
+	font-family: "Edwardian Script ITC";
+}
+h1{
+	text-align: center;
+	font-size: 72px;
+	margin: 15px;
+}
+h2 {
+	margin-bottom: 0;
+}
+.product {
+	margin: 1em;
+}
+input.checkboxLotus {
+	display: none;
+}
+input.checkboxLotus + label > span{
+	display: inline-block;
+	width: 1.7em;
+	height: 1em;
+	background-repeat: no-repeat;
+	background-size: cover;
+	/* background: url('img/uncheckedLotus.jpg'); */
+	background-image: url('../img/uncheckedLotus.png');
+	margin-right: 0.5em;
+}
+input.checkboxLotus:checked + label > span {
+	background-image: url('../img/checkedLotus.png');
+}
+
+.your-products {
+	display: flex;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+.pagination{
+	text-align: center;
+}
+.pages{
+	display: flex;
+	justify-content: center;
+}
+.pages > li {
+	margin: var(--pad-and-gap);
+}
+legend {
+	padding-top: var(--pad-and-gap);
+	font-weight: bold;	
+}
+.social, .legal {
+	display: flex;
+	justify-content: flex-end;
+	padding: 0px calc(var(--pad-and-gap) / 2);
+	background-color: var(--primary-vari);
+}
+.social > li , .legal >li {
+	margin: 5px 10px;
+}
+.copyright {
+	text-align: right;
+}
+.logo {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 3;
+}
+.logo>img {
+	height: 20vh;
+}
+.nav-toggle {
+	grid-column-start: 4;
+	grid-column-end: 5;
+	height: 2em;
+}
+.search {
+	grid-row-start: 2;
+	grid-row-end: 3;
+	grid-column-start: 1;
+	grid-column-end: 5;
+}
+.navigation {
+	display: none;
+	grid-row-start: 3;
+	grid-row-end: 4;
+	grid-column-start: 1;
+	grid-column-end: 5;
+}
+
+/*!!!!!MEDIA QUERIES (idk how to spell queiries. Quereies? Queries?) FOR OTHER VIEWPORTS!!!!!*/
+/*medium*/
+@media only screen and (min-width: 40em) {
+	.products {
+		display: grid;
+		grid-template-columns: 15em auto;
+	}
+	.heading, .pagination, .filter-list {
+		grid-column-start: 1;
+		grid-column-end: 3;
+	}
+	.filters {
+		position: sticky;
+		top: 0;
+		margin-bottom: 7em;
+		height: fit-content;
+		font-size: 12px;
+	}
+	.filters > h2 {
+		display: none;
+	}
+	.subheading {
+		display: none;
+	}
+}
+/*Large*/
+@media only screen and (min-width: 60em) {
+	.page-header{
+		grid-template-columns: auto 1fr auto auto auto;
+	}
+	.nav-toggle{
+		display: none;
+	}
+	.search{
+		grid-row-start: 1;
+		grid-row-end: 2;
+		grid-column-start: 3;
+		grid-column-end: 4;
+	}
+	.navigation{
+		grid-row-start: 2;
+		grid-row-end: 3;
+		grid-column-start: 1;
+		grid-column-end: 6;
+		display: inline;
+	}
+	.your-products{
+		grid-row-start: 1;
+		grid-row-end: 2;
+		grid-column-start: 5;
+		grid-column-end: 6;
+	}
+	.menu {
+		display: flex;
+		justify-content: center;
+		text-align: center;
+	}
+	.menu > li {
+		display: flex;
+		margin: 0px 3%;
+	}
+	.submenu{
+		display: flex;
+		padding-left: 0;
+		margin-left: 3%;
+	}
+	.menu > li:nth-child(2) {
+		margin-left: 0%;
+	}
+	.menu a {
+		color: var(--accent-col2);
+	}
+	.products{
+		display: block;
+	}
+	.filters {
+		position: relative;
+		margin-bottom: 7em;
+		height: fit-content;
+		font-size: 16px;
+	}
+	.filter-options{
+		display: flex;
+		justify-content: space-between;
+	}
+	.results {
+		max-width: 100%;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+	#sortfield {
+		padding-top: 10px;
+	}
+	.subheading {
+		display: block;
+		grid-column-start: 1;
+		grid-column-end: 3;
+		text-align: center;
+		font-size: 36px;
+		margin-top: 0px;
+	}
+	.filters > h2 {
+		display: block;
+		font-size: 36px;
+		text-align: center;
+		padding-top: 0px;
+	}
+}
+/*Extra large*/
+@media only screen and (min-width: 80em) {
+	.products {
+		display: grid;
+		grid-template-columns: 20em auto auto auto;
+	}
+	.filter-list {
+		grid-column-start: 1;
+		grid-column-end: 3;
+	}
+	.filters {
+		position: sticky;
+		top: 0;
+		margin-bottom: 7em;
+		height: fit-content;
+		font-size: 16px;
+	}
+	.heading {
+		grid-column-start: 1;
+		grid-column-end: 5;
+	}
+	.results {
+		max-width: 100%;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		background-color: #D8D9D3;
+		border-radius: 10px;
+	}
+	.subheading {
+		grid-column-start: 1;
+		grid-column-end: 4;
+	}
+	.filter-options{
+		display: block;
+		justify-content: space-between;
+	}
+
+}

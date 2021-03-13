@@ -7,7 +7,7 @@ const Product = ({ id, img, type, price, para, colours }) => {
 	return (
 	<article className="product">
 		<header>
-		<img src={img} alt={type} id={id} />
+		<img className="photo" src={img} alt={type} id={id} />
 		<h3>{type}</h3>
 		<data value={price}>${price}/e</data>
 		<p>{para}</p>
