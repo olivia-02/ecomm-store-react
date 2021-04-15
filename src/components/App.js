@@ -15,15 +15,12 @@ const App = () => {
     db.collection(`Flowers`).get().then(
       (snapshot) => {
         const flowerData = []
-        console.log(snapshot.docs)
 
         snapshot.docs.forEach(doc => {
-          console.log(doc.data())
           flowerData.push(doc.data())
         })
 
       setFlowerList(flowerData)
-      console.log(flowerData)
       setLoading(false)
     })
   },[])

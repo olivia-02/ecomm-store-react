@@ -1,8 +1,21 @@
 import React from 'react'
 
-const Product = ({ id, img, type, price, para, colours }) => {
+const ColourList = ( {options} ) => {
 
-	console.log(`Product()`)
+	let listItems = options.map((option) =>
+	<li key={option}><label><input type="radio" name="colour" value={option}></input>{option}
+	</label></li>)
+
+		return (
+			<ul>{listItems}</ul>
+		
+	)
+
+}
+
+const Product = ({ id, img, type, price, para, colours}) => {
+
+	console.log(`Product loaded`)
 
 	return (
 	<article className="product">
@@ -16,13 +29,7 @@ const Product = ({ id, img, type, price, para, colours }) => {
 		<form>
 		<fieldset>
 			<legend>Colours</legend>
-			<ul>
-			<li><label><input type="radio" name="colour" value={colours[0]}></input>{colours[0]}
-			</label></li>
-			<li><label><input type="radio" name="colour" value={colours[1]}></input>{colours[1]}</label></li>
-			<li><label><input type="radio" name="colour" value={colours[2]}></input>{colours[2]}</label></li>
-			<li><label><input type="radio" name="colour" value={colours[3]}></input>{colours[3]}</label></li>
-			</ul>
+			<ColourList options={colours} />
 		</fieldset>
 		<fieldset>
 			<legend>Bloom Count</legend>
