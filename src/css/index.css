@@ -105,6 +105,9 @@ legend {
 	padding-top: var(--pad-and-gap);
 	font-weight: bold;	
 }
+.photo {
+	max-width: 100%;
+}
 .social, .legal {
 	display: flex;
 	justify-content: flex-end;
