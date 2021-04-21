@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 import firebase from '../util/firebase'
 import Header from 'components/Header'
 import PageShop from 'pages/PageShop'
+import PageProduct from 'pages/PageProduct'
 
 
 const App = () => {
@@ -32,23 +33,23 @@ const App = () => {
 
 return (
   <ProductContext.Provider value={flowerList}>
-    <Router>
+    
       <Header></Header>
-      <main className="products">
-          <header className="heading">
-            <h1>Flowers & Foilage</h1>
-          </header>
-
+      
         
-
+      <Router>
         <Switch>
-					<Route path="/" component={PageShop} />
-					{/* <Route path="/product/:slug" component={PageProduct} /> */}
-					{/* <Route path="*" component={Page404} /> */}
-					{/* <Redirect to="/" /> */}
+					<Route exact path="/">
+            <PageShop />
+          </Route>
+					<Route path="/product/:id">
+            <PageProduct />
+          </Route>
 				</Switch>
+        </Router>
 
-        <nav aria-label="Pagination" className="pagination">
+  
+        {/* <nav aria-label="Pagination" className="pagination">
             <p>1-6 of 23 products found</p>
             <ol className="pages">
               <li><a href="#" aria-label="Current Page, Page 1" aria-current="true">1</a></li>
@@ -58,8 +59,7 @@ return (
               <li><a href="#" aria-label="Page 5">5</a></li>
             </ol>
           </nav>
-        </main>
-      </Router>
-    </ProductContext.Provider>
+        </main> */}
+            </ProductContext.Provider>
 )}
 export default App

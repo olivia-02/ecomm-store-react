@@ -1,25 +1,25 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-const ColourList = ( {options} ) => {
 
-	let listItems = options.map((option) =>
-	<li key={option}><label><input type="radio" name="colour" value={option}></input>{option}
-	</label></li>)
-
-		return (
-			<ul>{listItems}</ul>
-		
-	)
-
-}
 
 const Product = ({ id, img, type, price, para, colours}) => {
 
-	console.log(`Product loaded`)
+	const ColourList = ( {options} ) => {
+
+		let listItems = options.map((option) =>
+		<li key={option}><label><input type="radio" name="colour" value={option}></input>{option}
+		</label></li>)
+	
+			return (
+				<ul>{listItems}</ul>
+			
+		)
+	
+	}
 
 	return (
-	<article className="product">
+	<div className="product">
 		<header>
 		<img className="photo" src={img} alt={type} id={id} />
 		<h3><Link to={`/product/${id}`}></Link>{type}</h3>
@@ -46,7 +46,7 @@ const Product = ({ id, img, type, price, para, colours}) => {
 		<button type="button"><span className="material-icons">shopping_bag</span> Add to Order</button>
 		<button type="button"><span className="material-icons">stars</span></button>
 		</footer>
-  	</article>
+  	</div>
 	)
 }
 

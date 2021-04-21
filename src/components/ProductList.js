@@ -3,7 +3,7 @@ import Product from 'components/Product.js'
 
 const ProductList = ({ products }) => {
 
-let allProducts = products.map(({ id, img, type, price, para, colours }) => <Product key={id} id={id} img={img} type={type} price={price} para={para} colours={colours} />)
+	let allProducts = products.map(({ id, img, type, price, para, colours }) => <Product key={id} id={id} img={img} type={type} price={price} para={para} colours={colours} />)
 
 return (
 	<section className="productList">

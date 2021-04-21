@@ -44,9 +44,7 @@ module.exports = {
 	},
 	devServer: {
 		port: 3005,
-		historyApiFallback: {
-			index: `index.html`
-		}
+		historyApiFallback: true,
 	},
 	output: {
 		publicPath: `auto`

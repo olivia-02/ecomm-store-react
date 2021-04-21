@@ -10,6 +10,7 @@ html {
 	/*end colours*/
 	--pad-and-gap: 1em;
 	box-sizing: border-box;
+	
 }
 body{
 	/*global font*/
@@ -17,14 +18,11 @@ body{
 	font-family: 'Courier New', monospace;
 	color: var(--text-icon-col);
 	background-color: var(--primary-col);
-	max-width: 100%;
-	/* overflow: auto; */
+	width: 100vw;
+	overflow-x: hidden; 
 }
 .material-icons{
 	color: var(--text-icon-col)
-}
-main{
-	width: 100vw;
 }
 li {
 	list-style-type: none;
@@ -163,7 +161,7 @@ legend {
 		position: sticky;
 		top: 0;
 		margin-bottom: 7em;
-		height: fit-content;
+		height: 90vh;
 		font-size: 12px;
 	}
 	.filters > h2 {
@@ -226,7 +224,7 @@ legend {
 	.filters {
 		position: relative;
 		margin-bottom: 7em;
-		height: fit-content;
+		height: auto;
 		font-size: 16px;
 	}
 	.filter-options{
@@ -255,12 +253,20 @@ legend {
 		text-align: center;
 		padding-top: 0px;
 	}
+	.productList {
+		display: grid;
+		grid-template-columns: 50% 50%;
+	}
 }
 /*Extra large*/
 @media only screen and (min-width: 80em) {
 	.products {
 		display: grid;
 		grid-template-columns: 20em auto auto auto;
+	}
+	.productList {
+		display: grid;
+		grid-template-columns: auto 33% auto;
 	}
 	.filter-list {
 		grid-column-start: 1;
@@ -269,7 +275,7 @@ legend {
 	.filters {
 		position: sticky;
 		top: 0;
-		margin-bottom: 7em;
+		margin-bottom: 1em;
 		height: fit-content;
 		font-size: 16px;
 	}
@@ -280,7 +286,7 @@ legend {
 	.results {
 		max-width: 100%;
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr;
 		background-color: #D8D9D3;
 		border-radius: 10px;
 	}

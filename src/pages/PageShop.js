@@ -10,16 +10,28 @@ const PageShop = () => {
 
 	  const [filters, setFilters] = useState({
 	    query: ``,
-	    sortBy: `none`
+	    sortBy: `none`,
+		colour: `all`
 	  })
 
 	  useEffect(() => {
-	    // Creat a clone Array
+	
 	    let filteredProducts = [...products]
-	    // Check all the filters
-	    if (filters.query)
+	    // Check allllll dem filters
+	    if (filters.query) {
 	  	filteredProducts = filteredProducts.filter((prod) => prod.type.toLowerCase().includes(filters.query.toLowerCase().trim()))
-		console.log(filters)
+		}
+
+		if (filters.colour !== `all`) {
+			console.log("Boopityboop", filters.colour)
+			function checkCol(col) {
+				return col === filters.colour
+			}
+			filteredProducts = filteredProducts.filter((prod) => prod.colours.find(checkCol))
+			// filteredProducts = filteredProducts.filter((prod) => )
+		}
+		// filteredProducts = filteredProducts.filter((prod) => prod)
+
 	   // Assign the filtered products to the result state
 	   setProductResult(filteredProducts)
 
@@ -36,11 +48,20 @@ const PageShop = () => {
 
 
 	return (
-	  <main className="products">
+		<main className="products">
+      
+          <header className="heading">
+            <h1>Flowers & Foilage</h1>
+          </header>
 
 		 <Filter filters={filters} setFilters={setFilters} />
 
-		<ProductList products={productResult} />
+		<ProductList style={{display: "grid;"}} products={productResult} />
+
+		<footer>
+			<h2>{productResult.length} products found</h2>
+			<p>Thanks! - Olivia Robson :)</p>
+		</footer>
 
 	  </main>
 	)
