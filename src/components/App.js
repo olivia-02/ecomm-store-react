@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import ProductList from 'components/ProductList'
 import 'css/index.css'
+import ProductContext from 'contexts/product'
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 import firebase from '../util/firebase'
-import Filters from 'components/Filters'
+import Header from 'components/Header'
+import PageShop from 'pages/PageShop'
+
 
 const App = () => {
 
@@ -16,6 +19,7 @@ const App = () => {
     db.collection(`Flowers`).get().then(
       (snapshot) => {
         const flowerData = []
+        console.log("Got the datas")
 
         snapshot.docs.forEach(doc => {
           flowerData.push(doc.data())
@@ -27,64 +31,35 @@ const App = () => {
   },[])
 
 return (
-  <div>
-    <header className="page-header">
-		<a href="index.html" className="logo"><img src="./src/img/Tokonoma.png" alt="Tokonoma" /></a>
-  
-		{/* <!-- Navigation menu and toggle button (non-functional) --> */}
-		<button type="button" className="nav-toggle">
-		  <span className="material-icons">menu</span>
-		</button>
-		<nav aria-label="Primary" className="navigation">
-		  <ul className="menu">
-			<li><a href="#">Shop</a>
-			  <ul className="submenu">
-				<li><a href="#">Flowers & Foilage</a></li>
-				<li><a href="#">Vases</a></li>
-				<li><a href="#">Stands & Event Props</a></li>
-			  </ul>
-			</li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">FAQ</a></li>
-			<li><a href="#">Inspiration</a></li>
-		  </ul>
-		</nav>
-  
-		{/* <!-- Search for a product (non-functional) --> */}
-		<form className="search">
-		  <label>Search
-			<input type="search" name="find" id="find" />
-		  </label>
-		  <button type="button"><span className="material-icons">search</span></button>
-		</form>
-  
-		{/* <!-- Additional links --> */}
-		<ul className="your-products">
-		  <li><a href="#"><span className="material-icons" aria-label="Favourites">folder_special</span></a></li>
-		  <li><a href="#"><span className="material-icons" aria-label="Items in your cart">shopping_basket</span></a></li>
-		</ul>
-	  </header>
-    <main className="products">
-        <header className="heading">
-          <h1>Flowers & Foilage</h1>
-        </header>
+  <ProductContext.Provider value={flowerList}>
+    <Router>
+      <Header></Header>
+      <main className="products">
+          <header className="heading">
+            <h1>Flowers & Foilage</h1>
+          </header>
 
-        {/* <!-- Filtering product form --> */}
-      <Filters></Filters> 
+        
 
-      <ProductList products={flowerList} /> 
+        <Switch>
+					<Route path="/" component={PageShop} />
+					{/* <Route path="/product/:slug" component={PageProduct} /> */}
+					{/* <Route path="*" component={Page404} /> */}
+					{/* <Redirect to="/" /> */}
+				</Switch>
 
-      <nav aria-label="Pagination" className="pagination">
-          <p>1-6 of 23 products found</p>
-          <ol className="pages">
-            <li><a href="#" aria-label="Current Page, Page 1" aria-current="true">1</a></li>
-            <li><a href="#" aria-label="Page 2">2</a></li>
-            <li><a href="#" aria-label="Page 3">3</a></li>
-            <li><a href="#" aria-label="Page 4">4</a></li>
-            <li><a href="#" aria-label="Page 5">5</a></li>
-          </ol>
-        </nav>
-      </main>
-    </div>
+        <nav aria-label="Pagination" className="pagination">
+            <p>1-6 of 23 products found</p>
+            <ol className="pages">
+              <li><a href="#" aria-label="Current Page, Page 1" aria-current="true">1</a></li>
+              <li><a href="#" aria-label="Page 2">2</a></li>
+              <li><a href="#" aria-label="Page 3">3</a></li>
+              <li><a href="#" aria-label="Page 4">4</a></li>
+              <li><a href="#" aria-label="Page 5">5</a></li>
+            </ol>
+          </nav>
+        </main>
+      </Router>
+    </ProductContext.Provider>
 )}
 export default App

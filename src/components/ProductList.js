@@ -6,7 +6,7 @@ const ProductList = ({ products }) => {
 let allProducts = products.map(({ id, img, type, price, para, colours }) => <Product key={id} id={id} img={img} type={type} price={price} para={para} colours={colours} />)
 
 return (
-	<section className="results">
+	<section className="productList">
         <h2 className="subheading">Results</h2>
 		{allProducts}
 	</section>

@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const ColourList = ( {options} ) => {
 
@@ -21,10 +22,10 @@ const Product = ({ id, img, type, price, para, colours}) => {
 	<article className="product">
 		<header>
 		<img className="photo" src={img} alt={type} id={id} />
-		<h3>{type}</h3>
+		<h3><Link to={`/product/${id}`}></Link>{type}</h3>
 		<data value={price}>${price}/e</data>
 		<p>{para}</p>
-		<a href="#">see more</a>
+		<Link to={`/product/${id}`}>see more</Link>
 		</header>
 		<form>
 		<fieldset>
