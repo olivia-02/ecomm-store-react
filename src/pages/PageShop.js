@@ -28,9 +28,7 @@ const PageShop = () => {
 				return col === filters.colour
 			}
 			filteredProducts = filteredProducts.filter((prod) => prod.colours.find(checkCol))
-			// filteredProducts = filteredProducts.filter((prod) => )
 		}
-		// filteredProducts = filteredProducts.filter((prod) => prod)
 
 	   // Assign the filtered products to the result state
 	   setProductResult(filteredProducts)
