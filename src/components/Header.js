@@ -1,10 +1,11 @@
 import React from 'react'
+import TokonomaImg from '../img/Tokonoma.png'
 
 const Header = () => {
 
 	return(
 	<header className="page-header">
-			<a href="index.html" className="logo"><img src="./src/img/Tokonoma.png" alt="Tokonoma" /></a>
+			<a href="/#" className="logo"><img src={TokonomaImg} alt="Tokonoma" /></a>
 	
 			{/* <!-- Navigation menu and toggle button (non-functional) --> */}
 			<button type="button" className="nav-toggle">
@@ -12,7 +13,7 @@ const Header = () => {
 			</button>
 			<nav aria-label="Primary" className="navigation">
 			<ul className="menu">
-				<li><a href="#">Shop</a>
+				<li><a href="/#">Shop</a>
 				<ul className="submenu">
 					<li><a href="#">Flowers & Foilage</a></li>
 					<li><a href="#">Vases</a></li>
@@ -25,7 +26,6 @@ const Header = () => {
 			</ul>
 			</nav>
 	
-			{/* <!-- Search for a product (non-functional) --> */}
 	
 			{/* <!-- Additional links --> */}
 			<ul className="your-products">

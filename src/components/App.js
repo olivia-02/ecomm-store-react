@@ -6,6 +6,7 @@ import firebase from '../util/firebase'
 import Header from 'components/Header'
 import PageShop from 'pages/PageShop'
 import PageProduct from 'pages/PageProduct'
+import Page404 from 'pages/Page404'
 
 
 const App = () => {
@@ -45,21 +46,9 @@ return (
 					<Route path="/product/:id">
             <PageProduct />
           </Route>
+          <Route path="*" component={Page404} />
 				</Switch>
         </Router>
-
-  
-        {/* <nav aria-label="Pagination" className="pagination">
-            <p>1-6 of 23 products found</p>
-            <ol className="pages">
-              <li><a href="#" aria-label="Current Page, Page 1" aria-current="true">1</a></li>
-              <li><a href="#" aria-label="Page 2">2</a></li>
-              <li><a href="#" aria-label="Page 3">3</a></li>
-              <li><a href="#" aria-label="Page 4">4</a></li>
-              <li><a href="#" aria-label="Page 5">5</a></li>
-            </ol>
-          </nav>
-        </main> */}
-            </ProductContext.Provider>
+  </ProductContext.Provider>
 )}
 export default App

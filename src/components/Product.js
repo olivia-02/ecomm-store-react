@@ -5,6 +5,9 @@ import {Link} from 'react-router-dom'
 
 const Product = ({ id, img, type, price, para, colours}) => {
 
+	//Grab images dynamically per product instance
+	const productImg = require(`img/${img}`).default
+
 	const ColourList = ( {options} ) => {
 
 		let listItems = options.map((option) =>
@@ -21,7 +24,7 @@ const Product = ({ id, img, type, price, para, colours}) => {
 	return (
 	<div className="product">
 		<header>
-		<img className="photo" src={img} alt={type} id={id} />
+		<img className="photo" src={productImg} alt={type} id={id} />
 		<h3><Link to={`/product/${id}`}></Link>{type}</h3>
 		<data value={price}>${price}/e</data>
 		<p>{para}</p>

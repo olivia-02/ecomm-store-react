@@ -1,8 +1,6 @@
 import React from 'react'
 import 'css/index.css'
 
-let filteredCols = []
-
 const Filter = ({filters, setFilters}) => {  
 
   const HandleColours = (event) => {
