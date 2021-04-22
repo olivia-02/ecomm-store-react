@@ -46,8 +46,9 @@ const PageShop = () => {
 
 
 	return (
+		<div>
 		<main className="products">
-      
+			
           <header className="heading">
             <h1>Flowers & Foilage</h1>
           </header>
@@ -56,12 +57,15 @@ const PageShop = () => {
 
 		<ProductList style={{display: "grid;"}} products={productResult} />
 
+		</main>
+
 		<footer>
 			<h2>{productResult.length} products found</h2>
 			<p>Thanks! - Olivia Robson :)</p>
 		</footer>
 
-	  </main>
+		</div>
+	  
 	)
   }
 
